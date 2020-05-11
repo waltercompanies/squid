@@ -8,7 +8,7 @@ module Squid
     def format_for(value, format)
       case format
         when :percentage then number_to_percentage value, precision: 1
-        when :currency then number_to_currency value
+        when :currency then number_to_currency value, unit: "€", format: "%u %n", separator: ",", delimiter: ".", precision: 0
         when :seconds then number_to_minutes_and_seconds value
         when :float then number_to_float value
         else number_to_delimited value.to_i
